@@ -1,9 +1,11 @@
-import React from 'react'; 
-import './App.css';
+import React from "react";
+import "./App.css";
 
 function App() {
 
-    
+
+  //-------------------------------------------------task-1-----------------------------------------------//
+
   // let arrName = [
   //   { name: "kishan", product: "mobile", qty: 5 },
   //   { name: "kishan", product: "mobile", qty: 5 },
@@ -14,7 +16,7 @@ function App() {
   //   {name : "meet" , product : "computer" , qty : 10}
   // ];
   // console.log("arrName", arrName);
-  
+
   // let newArrName2 = [];
   // const handle = () => {
   //   for (let i = 0; i < arrName.length; i++) {
@@ -27,7 +29,7 @@ function App() {
   //     else{
   //       const findIn = newArrName2.findIndex((elem)=>elem.name === element.name)
   //        console.log("findIn",findIn);
-        
+
   //       if(findIn === -1)
   //       {
   //         newArrName2.push({name: element.name,product: element.product,qty: element.qty})
@@ -41,70 +43,67 @@ function App() {
   //         }
   //         )
   //       }
-        
+
   //     }
   //   };
   // }
   // handle();
   // console.log("newArrName2", newArrName2);
-  
-  
+
+
+///---------------------------------------------------------------task-2-------------------------------------------------//
+
   let newbanktask = [
-    {amount : 100, payment : "cash"},
-    {amount : 200, payment : "cash"},
-    {amount : 200 , payment : "card"},
-    {amount : 100, payment : "cash"},
-    {amount : 150, payment : "cash"},
-    {amount : 20, payment : "cash"},
-    {amount : 100 , payment : "card"},
-    {amount : 100 , payment : "card"},
-    {amount : 100 , payment : "card"},
-
-  ]
+    { amount: 100, payment: "cash" },
+    { amount: 200, payment: "cash" },
+    { amount: 200, payment: "card" },
+    { amount: 100, payment: "cash" },
+    { amount: 150, payment: "cash" },
+    { amount: 100, payment: "card" },
+    { amount: 200, payment: "cash" },
+    { amount: 100, payment: "card" },
+    { amount: 100, payment: "card" },
+  ];
   console.log("newbanktask", newbanktask);
-  let newbanktask2 = []
-  const Handle = () => {
   
-    for (let i = 0; i < newbanktask.length; i++) {
-      const element2 = newbanktask[i]
-      // console.log("element2",element2);
-      const findIndex2 = newbanktask2.findIndex((elem)=>elem.payment === element2.payment)
-       console.log("findIndex2",findIndex2);
-      if(findIndex2 == -1)
-      {
-        
-        newbanktask2.push({amount : element2.amount , payment : element2.payment})
-      }
-      else{
-       
-        // newbanktask2.map((item2)=>{
-        //   if(item2.payment ===  element2.payment)
-        //   {
-        //        return item2.amount += element2.amount
-          
-        //   }
-      //})
-      
-        newbanktask2.map((item2)=>{
-          if (item2.payment === "cash") {
-            return  item2.amount += element2.amount
-            
-          }
-        })
-        
 
-      }
-      
+  let newbanktask6 = [];
+  let finalobject = {};
+
+  for (let i = 0; i < newbanktask.length; i++) {
+    const element3 = newbanktask[i];
+
+    // const filtervalue = newbanktask.filter((elem)=>elem.payment === "cash")
+    //  console.log("filtervalue",filtervalue);
+
+    const findIn = newbanktask.findIndex(
+      (item) => item.payment === element3.payment
+    );
+    //console.log("findIn", findIn);
+
+    if (findIn === 0) {
+      newbanktask6.push({ amount: element3.amount, payment: element3.payment });
     }
   }
-  Handle()
-  console.log("newbanktask2",newbanktask2);
-  
+
+  console.log("newbanktask6", newbanktask6);
+  const mulvalue = newbanktask6.reduce(function (total, currentValue) {
+    return total + currentValue.amount;
+  }, 0);
+  console.log("amount : ", mulvalue);
+
+  finalobject.payment = "cash";
+  finalobject.amount = mulvalue;
+  console.log("finaobject", finalobject);
+
+
+
+
   return (
     <div className="App">
-     <h1>Create All Task </h1>
-    
-  
+      <h1>Create All Task </h1>
+      <h1>{finalobject.amount}</h1>  
+      <h1>{finalobject.payment}</h1>  
     </div>
   );
 }
