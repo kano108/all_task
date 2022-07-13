@@ -53,57 +53,73 @@ function App() {
 
 ///---------------------------------------------------------------task-2-------------------------------------------------//
 
-  let newbanktask = [
-    { amount: 100, payment: "cash" },
-    { amount: 200, payment: "cash" },
-    { amount: 200, payment: "card" },
-    { amount: 100, payment: "cash" },
-    { amount: 150, payment: "cash" },
-    { amount: 100, payment: "card" },
-    { amount: 200, payment: "cash" },
-    { amount: 100, payment: "card" },
-    { amount: 100, payment: "card" },
-  ];
-  console.log("newbanktask", newbanktask);
+  // let newbanktask = [
+  //   { amount: 100, payment: "cash" },
+  //   { amount: 200, payment: "cash" },
+  //   { amount: 200, payment: "card" },
+  //   { amount: 100, payment: "cash" },
+  //   { amount: 150, payment: "cash" },
+  //   { amount: 100, payment: "card" },
+  //   { amount: 200, payment: "cash" },
+  //   { amount: 100, payment: "card" },
+  //   { amount: 100, payment: "card" },
+  //   { amount: 200, payment: "cash" }
+  // ];
+  // console.log("newbanktask", newbanktask);
   
 
-  let newbanktask6 = [];
-  let finalobject = {};
+  // let newbanktask6 = [];
+  // let finalobject = {};
 
-  for (let i = 0; i < newbanktask.length; i++) {
-    const element3 = newbanktask[i];
+  // for (let i = 0; i < newbanktask.length; i++) {
+  //   const element3 = newbanktask[i];  
+  //   const findIn = newbanktask.findIndex((item) => item.payment === element3.payment);
+  //   console.log("findIn", findIn);
+    
+  //   if (findIn === 0) {
+  //       newbanktask6.push({ amount: element3.amount, payment: element3.payment });
+  //     }
+  //   }
+    
+  //   console.log("newbanktask6", newbanktask6);
+  //   const mulvalue = newbanktask6.reduce(function (total, currentValue) {
+  //     return total + currentValue.amount;
+  //   }, 0);
+  // console.log("amount : ", mulvalue);
 
-    // const filtervalue = newbanktask.filter((elem)=>elem.payment === "cash")
-    //  console.log("filtervalue",filtervalue);
+  // finalobject.payment = "cash";
+  // finalobject.amount = mulvalue;
+  // console.log("finaobject", finalobject);
+  
+  //----------------------------------------------------------reduce(samjavu)----------------------------------------//
+  // const filtervalue = newbanktask.filter((elem)=>elem.payment === "cash")
+  // console.log("filtervalue",filtervalue);
+  //  newbanktask6.push({amount : filtervalue.amount , payment : filtervalue.payment})
+  //----------------------------------------------------------reduce(samjavu)---task - 3 -----------------------------------//
 
-    const findIn = newbanktask.findIndex(
-      (item) => item.payment === element3.payment
-    );
-    //console.log("findIn", findIn);
+let a = [1,2,3,4]
+//syntax:array.reduce(function(total, currentValue, currentIndex, arr), initialValue)
+//total1 = 1
+//total2= 2,3,4
+//total3=current index(1,2,3)
+//total4=all value assign kare [1,2,3,4]
 
-    if (findIn === 0) {
-      newbanktask6.push({ amount: element3.amount, payment: element3.payment });
-    }
-  }
-
-  console.log("newbanktask6", newbanktask6);
-  const mulvalue = newbanktask6.reduce(function (total, currentValue) {
-    return total + currentValue.amount;
-  }, 0);
-  console.log("amount : ", mulvalue);
-
-  finalobject.payment = "cash";
-  finalobject.amount = mulvalue;
-  console.log("finaobject", finalobject);
-
-
+let text =(total1, total2 , total3, total4) =>{
+  console.log("toatl1 : ",total1);
+  console.log("toatl2 : ",total2);
+  console.log("toatl3 : ",total3);
+  console.log("toatl4 : ",total4);
+  return total1 - total2
+}
+let b = a.reduce(text)
+console.log("b",b);
 
 
   return (
     <div className="App">
       <h1>Create All Task </h1>
-      <h1>{finalobject.amount}</h1>  
-      <h1>{finalobject.payment}</h1>  
+      {/* <h1>{finalobject.amount}</h1>  
+      <h1>{finalobject.payment}</h1>   */}
     </div>
   );
 }
